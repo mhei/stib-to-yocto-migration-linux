@@ -5,8 +5,10 @@ git-init:
 	git submodule init
 	git submodule update
 
-openwrt/feeds/packages.tmp/.packageinfo:
+openwrt/feeds/packages/README.md:
 	openwrt/scripts/feeds update -a
+
+openwrt/feeds/packages.tmp/.packageinfo: openwrt/feeds/packages/README.md
 	openwrt/scripts/feeds install -a
 
 openwrt/build_dir/target-arm_arm926ej-s_musl_eabi/linux-mxs_generic/zImage-initramfs: openwrt/feeds/packages.tmp/.packageinfo openwrt/.config
