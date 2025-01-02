@@ -18,6 +18,7 @@ openwrt/.config: openwrt-cfg/.config
 	cp -a $< $@
 
 openwrt/build_dir/target-arm_arm926ej-s_musl_eabi/linux-mxs_generic/zImage-initramfs: openwrt/feeds/packages.tmp/.packageinfo openwrt/.config
+	ln -sf ../openwrt-cfg/files openwrt/files
 	$(MAKE) -C openwrt
 
 linux/arch/arm/boot/dts/nxp/mxs/imx28-evacharge-se.dtb:
